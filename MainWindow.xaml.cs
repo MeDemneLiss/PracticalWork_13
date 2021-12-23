@@ -1,8 +1,11 @@
-﻿using System;
+﻿using System.Configuration;
+using System.Collections.Specialized;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using LibMas;
 using Microsoft.Win32;
+
 
 namespace PracticalWork_13
 {
@@ -96,11 +99,13 @@ namespace PracticalWork_13
                 MessageBox.Show("Сначала создайте таблицу", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            SaveFileDialog save = new SaveFileDialog();
-            save.DefaultExt = ".txt";
-            save.Filter = "Все файлы (*.*) | *.* | Текстовые файлы (*.txt*) | *.txt*";
-            save.FilterIndex = 2;
-            save.Title = "Сохранить Таблицы";
+            SaveFileDialog save = new SaveFileDialog
+            {
+                DefaultExt = ".txt",
+                Filter = "Все файлы (*.*) | *.* | Текстовые файлы (*.txt*) | *.txt*",
+                FilterIndex = 2,
+                Title = "Сохранить Таблицы"
+            };
             if (save.ShowDialog() == true)
             {
                 MatrixLogic.SaveMatrix(save.FileName, matrix);
@@ -109,10 +114,12 @@ namespace PracticalWork_13
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Все файлы (*.*)|*.*|Текстовые файлы|*.txt";
-            open.FilterIndex = 2;
-            open.Title = "Открытие таблицы";
+            OpenFileDialog open = new OpenFileDialog
+            {
+                Filter = "Все файлы (*.*)|*.*|Текстовые файлы|*.txt",
+                FilterIndex = 2,
+                Title = "Открытие таблицы"
+            };
             if (open.ShowDialog() == true)
             {
                 if (open.FileName != string.Empty)
@@ -134,7 +141,8 @@ namespace PracticalWork_13
 
         private void Exit_Cick(object sender, RoutedEventArgs e)
         {
-            Close();
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите закрыть программу?!?!?!", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (result == MessageBoxResult.Yes) Close();
         }
 
         private void Text_TextChanged(object sender, TextChangedEventArgs e)

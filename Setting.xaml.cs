@@ -12,28 +12,25 @@ namespace PracticalWork_13
         private void FillSetting_Click(object sender, RoutedEventArgs e)
         {
             int value;
-            if (int.TryParse(rowText.Text, out value))
-            {
-                if (value > 0)
+            int valueColumn;
+            if (int.TryParse(rowText.Text, out value)&& (value > 0))
                     SettingValues.NumberRow = value;
-                else
-                {
+            else
+            {
                     MessageBox.Show("Ошибка в количестве строк");
                     rowText.Focus();
                     return;
-                }
             }
-            if (int.TryParse(columnText.Text, out value))
-            {
-                if (value > 0)
-                    SettingValues.NumberColumn = value;
+            
+            if (int.TryParse(columnText.Text, out valueColumn) && (valueColumn > 0))
+                    SettingValues.NumberColumn = valueColumn;
                 else
                 {
                     MessageBox.Show("Ошибка в количестве строк");
                     columnText.Focus();
                     return;
                 }
-            }
+            
             Close();
         }
 
