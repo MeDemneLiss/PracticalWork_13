@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PracticalWork_13"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="420" MinWidth="390" MinHeight="253" ResizeMode="CanResizeWithGrip" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="27"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="26"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="25"/>
@@ -23,8 +22,6 @@
             <Button Content="Сохранить" Click="Save_Click"></Button>
             <Button Content="Открыть" Click="Open_Click"></Button>
             <Button Content="Очистить" Click="Clear_Click"></Button>
-            <Button Content="О программе" Click="Info_Click"></Button>
-            <Button Content="Выход" Click="Exit_Cick" ></Button>
         </ToolBar>
         <GroupBox Header="Исходные данные" Grid.Row="2">
             <Grid>
@@ -40,10 +37,10 @@
                     <RowDefinition Height="25"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid Grid.ColumnSpan="3" x:Name="initialTable" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" SelectedCellsChanged="InitialTable_SelectedCellsChanged" >
+                <DataGrid Grid.ColumnSpan="3" x:Name="tabelMatrix" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" SelectedCellsChanged="TabelMatrix_SelectedCellsChanged" >
                     <DataGrid.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Отобразить" Click="Show_Click"></MenuItem>
+                            <MenuItem Header="Отобразить" Click="FillMatrix_Click"></MenuItem>
                             <MenuItem Header="Рассчитать" Click="Calculate_Click"></MenuItem>
                             <MenuItem Header="Очистить поля" Click="Clear_Click"></MenuItem>
                         </ContextMenu>
@@ -53,7 +50,7 @@
                 <TextBox  Grid.Row ="2" Grid.Column="0" x:Name="columnText" TextChanged="Text_TextChanged" BorderBrush = "#FF979B9B" />
                 <Label Grid.Row ="1" Grid.Column="1" Content="- Количество строк" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                 <Label Grid.Row ="2" Grid.Column="1" Content="- Количество столбцов" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Button HorizontalAlignment="Right" MaxWidth="200" Grid.Row ="3" Grid.Column="0" Content="  Заполнить таблицу  " ToolTip="Выводит таблицу" Click="Show_Click" />
+                <Button HorizontalAlignment="Right" MaxWidth="200" Grid.Row ="3" Grid.Column="0" Content="  Заполнить таблицу  " ToolTip="Выводит таблицу" Click="FillMatrix_Click" />
                 <Button  Grid.Row ="3" Grid.Column="1" Content="  Рассчитать  " ToolTip="Находит кол-во столбцов упорядоченных по убыванию" Click="Calculate_Click"/>
             </Grid>
         </GroupBox>
