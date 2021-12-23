@@ -129,7 +129,7 @@ namespace PracticalWork_13
 
         private void Info_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Самсаков Андрей Александрович ИСП-31\nВариант 1\nПрактическая работа №13\nДана матрица размера M * N. Найти количество ее столбцов, элементы которых упорядочены по убыванию.", "Информация о программе", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Самсаков Андрей Александрович ИСП-31\nВариант 1\nПрактическая работа №14\nПароль + настройки", "Информация о программе", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Exit_Cick(object sender, RoutedEventArgs e)
@@ -159,6 +159,30 @@ namespace PracticalWork_13
         {
             if (tabelMatrix.CurrentColumn == null) return;
             selectedText.Text = string.Format("Выбранная ячейка: {0}х{1}", tabelMatrix.Items.IndexOf(tabelMatrix.CurrentItem) + 1, tabelMatrix.CurrentColumn.DisplayIndex + 1);
+        }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(rowText.Text, out int row) && int.TryParse(columnText.Text, out int column) && row > 0 && column > 0)
+            {
+                SettingValues.NumberRow = row;
+                SettingValues.NumberColumn = column;
+            }
+            Setting opt = new Setting();
+            opt.ShowDialog();
+            rowText.Text = SettingValues.NumberRow.ToString();
+            columnText.Text = SettingValues.NumberColumn.ToString();
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Password pas = new Password
+            {
+                Owner = this
+            };
+            pas.ShowDialog();
+
         }
     }
 }

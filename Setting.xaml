@@ -1,0 +1,27 @@
+﻿<Window x:Class="PracticalWork_13.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Настройки" Height="146" Width="498" ResizeMode="NoResize" Activated="Window_Activated">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="25"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <TextBox  Grid.Row ="1" Grid.Column="1" x:Name="rowText" BorderBrush = "#FF979B9B"/>
+        <TextBox  Grid.Row ="2" Grid.Column="1" x:Name="columnText" BorderBrush = "#FF979B9B" />
+        <Label Grid.Row ="1" Grid.Column="2" Content="- Количество строк" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Grid.Row ="2" Grid.Column="2" Content="- Количество строк" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button HorizontalAlignment="Right" MaxWidth="200" Grid.Row ="3" Grid.Column="2" Content="  Внести значения  " ToolTip="Выводит значения в соответствующие поля" IsDefault="True" Click="FillSetting_Click" />
+    </Grid>
+</Window>

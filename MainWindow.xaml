@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="420" MinWidth="390" MinHeight="253" ResizeMode="CanResizeWithGrip" >
+        Title="MainWindow" Height="400" Width="420" MinWidth="390" MinHeight="253" ResizeMode="CanResizeWithGrip" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -22,6 +22,7 @@
             <Button Content="Сохранить" Click="Save_Click"></Button>
             <Button Content="Открыть" Click="Open_Click"></Button>
             <Button Content="Очистить" Click="Clear_Click"></Button>
+            <Button Content="Настройки" Click="Setting_Click"></Button>
         </ToolBar>
         <GroupBox Header="Исходные данные" Grid.Row="2">
             <Grid>
